@@ -13,6 +13,14 @@ Face Raiders stores its save data on the 3DS's NAND, which requires the console 
 In FBI, go to System Save Data -> 000202xD -> Browse Save Data (x = Region Code), and copy all the files from there.
 Create a temporary folder in your SD card where you will paste your Save Data, so you can then access it either by putting the SD card in your computer, or using [FTPD](https://github.com/mtheall/ftpd) to transfer the files wirelessly.
 
+Here are the known region codes:
+- 0: Japan
+- 1: North America
+- 2: Europe
+- 6: iQue 3DS
+- 7: South Korea
+- 8: Taiwan
+
 Once the Save Data is on your computer, you can open the Kbb.dat file with the editor, which will automatically load the Photo.dat files as well.
 
 When done editing, simply move the modified Save Data back to your 3DS, and put it in the System Save Data folder they originated from.
