@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="FaceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FaceRecoveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GlobalsEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="HexEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ImportFaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ScoreEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SelectFaceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UFOCrewEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
