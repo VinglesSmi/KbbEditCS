@@ -2,7 +2,7 @@
 
 A Face Raiders Save Data Editor.
 
-KbbEdit -> Kbb.dat Editor. Kbb is the abrevation for the game's code name: Kao Bang Bang (顔・バン・バン).
+KbbEdit -> Kbb.dat Editor. Kbb is the abbreviation for the game's code name: Kao Bang Bang (顔・バン・バン).
 
 # How to use
 
