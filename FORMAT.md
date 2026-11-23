@@ -212,6 +212,8 @@ When this flag is set, an unused functionality is enabled, which reads the field
 
 It has been observed that setting these fields to non-zero values affects how the game detects faces, and how the game identifies a face's age and gender.
 
+In the v2 version of the game (installed on New 3DS consoles), the 0x10F4 and 0x10F6 fields are a single 32-bit field instead.
+
 ## 0x1100 to 0x117F: Global game flags
 
 ### All of these fields are boolean values.
