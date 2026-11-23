@@ -13,6 +13,9 @@ namespace KbbEditCS
         HexEditor F_HexEdit;
         bool HexWarnFlag = false;
 
+        LinksForm F_Links;
+        HelpForm F_Help;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +23,9 @@ namespace KbbEditCS
             F_ScoreEdit = new ScoreEditor();
             F_FaceEdit = new FaceEditor();
             F_GlobalsEdit = new GlobalsEditor();
+
+            F_Links = new LinksForm();
+            F_Help = new HelpForm();
 
             F_HexEdit = new HexEditor();
 
@@ -159,14 +165,12 @@ namespace KbbEditCS
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: show help dialog
-            Interaction.MsgBox("Unimplemented");
+            F_Help.Show();
         }
 
         private void linksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: show links form
-            Interaction.MsgBox("Unimplemented");
+            F_Links.Show();
         }
 
         private void hexEditorToolStripMenuItem_Click(object sender, EventArgs e)

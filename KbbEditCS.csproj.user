@@ -13,10 +13,16 @@
     <Compile Update="GlobalsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="HexEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ImportFaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LinksForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ScoreEditor.cs">
