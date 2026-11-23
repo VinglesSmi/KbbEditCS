@@ -66,9 +66,9 @@
             label2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(114, 153);
             label2.Name = "label2";
-            label2.Size = new Size(153, 30);
+            label2.Size = new Size(208, 30);
             label2.TabIndex = 5;
-            label2.Text = "Discord Server";
+            label2.Text = "Discord Server (15+)";
             // 
             // pictureBox2
             // 
@@ -115,9 +115,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(114, 183);
             label4.Name = "label4";
-            label4.Size = new Size(196, 15);
+            label4.Size = new Size(165, 15);
             label4.TabIndex = 9;
-            label4.Text = "(15+) Discussion about Face Raiders";
+            label4.Text = "Discussion about Face Raiders";
             // 
             // LinksForm
             // 
