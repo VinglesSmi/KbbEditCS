@@ -98,19 +98,12 @@ namespace KbbEditCS
             Globals.LvlScoreRecord stg_record = Globals.kbbfile.stg_records[stgnum];
 
             // Load score records
-            try
-            {
-                NUD_Record1.Value = stg_record.r1_score;
-                NUD_Record2.Value = stg_record.r2_score;
-                NUD_Record3.Value = stg_record.r3_score;
-                NUD_Record4.Value = stg_record.r4_score;
-                NUD_Record5.Value = stg_record.r5_score;
-                NUD_MaxCombo.Value = stg_record.maxcombo;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            NUD_Record1.Value = Math.Min(999999U, stg_record.r1_score);
+            NUD_Record2.Value = Math.Min(999999U, stg_record.r2_score);
+            NUD_Record3.Value = Math.Min(999999U, stg_record.r3_score);
+            NUD_Record4.Value = Math.Min(999999U, stg_record.r4_score);
+            NUD_Record5.Value = Math.Min(999999U, stg_record.r5_score);
+            NUD_MaxCombo.Value = Math.Min((ushort)99, stg_record.maxcombo);
 
             // Get 1st face ID
             if (stg_record.r1_face != -1)

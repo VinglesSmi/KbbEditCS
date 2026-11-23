@@ -138,7 +138,7 @@ namespace KbbEditCS
                 // Get age
                 if (rec_face.age != -1)
                 {
-                    DROP_FaceAge.SelectedIndex = rec_face.age;
+                    DROP_FaceAge.SelectedIndex = Math.Min((ushort)4, Math.Max((ushort)0, rec_face.age));
                 }
                 else
                 {
@@ -149,7 +149,7 @@ namespace KbbEditCS
                 // Get gender
                 if (rec_face.gender != -1)
                 {
-                    DROP_FaceGender.SelectedIndex = rec_face.gender;
+                    DROP_FaceGender.SelectedIndex = Math.Min((ushort)1, Math.Max((ushort)0, rec_face.gender));
                 }
                 else
                 {

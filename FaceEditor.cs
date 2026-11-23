@@ -146,8 +146,8 @@ namespace KbbEditCS
 
         void UpdateMeetDate(sbyte day, sbyte month, short year)
         {
-            NUD_MeetYear.Value = year;
-            NUD_MeetMonth.Value = month;
+            NUD_MeetYear.Value = Math.Min((short)9999, Math.Max((short)1, year));
+            NUD_MeetMonth.Value = Math.Min((short)12, Math.Max((short)1, month));
 
             // Set maximum value in meet date box
             if ((month == 2) && DateTime.IsLeapYear(year))
@@ -156,10 +156,10 @@ namespace KbbEditCS
             }
             else
             {
-                NUD_MeetDay.Maximum = daysbymonth[month - 1];
+                NUD_MeetDay.Maximum = daysbymonth[(int)NUD_MeetMonth.Value - 1];
             }
 
-            NUD_MeetDay.Value = day;
+            NUD_MeetDay.Value = Math.Min((sbyte)NUD_MeetDay.Maximum, Math.Max((sbyte)1, day));
 
             NUD_MeetYear.Enabled = true;
             NUD_MeetMonth.Enabled = true;
@@ -227,6 +227,17 @@ namespace KbbEditCS
             Globals.kbb_valid_flag = false;
         }
 
+        float GetValidDecimal(float value, float min, float max, float fallback)
+        {
+            if (!float.IsFinite(value)) return fallback;
+
+            if (value > max) return max;
+
+            if (value < min) return min;
+
+            return value;
+        }
+
         void HandleFaceClick(int page, int slot)
         {
             int faceid = Globals.ordered_faces[10 * page + slot - 1];
@@ -278,62 +289,41 @@ namespace KbbEditCS
 
                 UpdateMeetDate(rec_face.met_day, rec_face.met_month, rec_face.met_year);
 
-                try
-                {
-                    NUD_FaceSelections.Value = rec_face.selections;
-                    NUD_FaceSelections.Enabled = true;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-
+                // Get times chosen
+                NUD_FaceSelections.Value = Math.Min((ushort)999, rec_face.selections);
+                NUD_FaceSelections.Enabled = true;
+                
                 // Get age
-                if (rec_face.age != -1)
-                {
-                    DROP_FaceAge.SelectedIndex = rec_face.age;
-                }
-                else
-                {
-                    DROP_FaceAge.SelectedIndex = DROP_FaceAge.Items.Count - 1;
-                }
+                if (rec_face.age != -1) DROP_FaceAge.SelectedIndex = Math.Min((ushort)4, Math.Max((ushort)0, rec_face.age));
+
+                else DROP_FaceAge.SelectedIndex = DROP_FaceAge.Items.Count - 1;
+
                 DROP_FaceAge.Enabled = true;
 
                 // Get gender
-                if (rec_face.gender != -1)
-                {
-                    DROP_FaceGender.SelectedIndex = rec_face.gender;
-                }
-                else
-                {
-                    DROP_FaceGender.SelectedIndex = DROP_FaceGender.Items.Count - 1;
-                }
+                if (rec_face.gender != -1) DROP_FaceGender.SelectedIndex = Math.Min((ushort)1, Math.Max((ushort)0, rec_face.gender));
+
+                else DROP_FaceGender.SelectedIndex = DROP_FaceGender.Items.Count - 1;
+
                 DROP_FaceGender.Enabled = true;
 
                 // Get face transform
-                try
-                {
-                    NUD_HScroll.Value = (decimal)rec_face.tx_move_x;
-                    NUD_VScroll.Value = (decimal)rec_face.tx_move_y;
-                    NUD_HScale.Value = (decimal)rec_face.tx_stretch_x;
-                    NUD_VScale.Value = (decimal)rec_face.tx_stretch_y;
-                    NUD_Rotation.Value = (decimal)float.RadiansToDegrees(rec_face.tx_rot);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
+                NUD_HScroll.Value  = (decimal)GetValidDecimal(rec_face.tx_move_x, -0.5f, 0.5f, 0.0f);
+                NUD_VScroll.Value  = (decimal)GetValidDecimal(rec_face.tx_move_y, -0.5f, 0.5f, 0.0f);
+                NUD_HScale.Value   = (decimal)GetValidDecimal(rec_face.tx_stretch_x, 0.25f, 2.0f, 1.0f);
+                NUD_VScale.Value   = (decimal)GetValidDecimal(rec_face.tx_stretch_y, 0.25f, 2.0f, 1.0f);
+                NUD_Rotation.Value = (decimal)GetValidDecimal(float.RadiansToDegrees(rec_face.tx_rot), -90.0f, 90.0f, 0.0f);
 
-                NUD_HScroll.Enabled = true;
-                NUD_VScroll.Enabled = true;
-                NUD_HScale.Enabled = true;
-                NUD_VScale.Enabled = true;
+                NUD_HScroll.Enabled  = true;
+                NUD_VScroll.Enabled  = true;
+                NUD_HScale.Enabled   = true;
+                NUD_VScale.Enabled   = true;
                 NUD_Rotation.Enabled = true;
 
                 B_ImportImg.Enabled = true;
                 B_ExportImg.Enabled = true;
                 B_SwapFaces.Enabled = true;
-                B_Delete.Enabled = true;
+                B_Delete.Enabled    = true;
             }
         }
 
