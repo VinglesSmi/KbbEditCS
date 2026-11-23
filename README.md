@@ -1,8 +1,12 @@
 # KbbEditCS
 
+<img width="256" height="256" alt="KbbEditCS" src="https://github.com/user-attachments/assets/7ef80b51-7aa5-446c-9610-e669758218ea" />
+
 A Face Raiders Save Data Editor.
 
 KbbEdit -> Kbb.dat Editor. Kbb is the abbreviation for the game's code name: Kao Bang Bang (顔・バン・バン).
+
+Program icon kindly designed by user JoshuqTheHusk on Discord.
 
 # How to use
 
@@ -31,4 +35,4 @@ Of course, it is recommended to keep a copy of the original, unmodified Save Dat
 - Score Editor: Edit Stage records and which Stages are unlocked.
 - Face Editor: Modify, import and export Faces.
 - Globals Editor: Edit parameters used in various places in the game.
-- (DEBUG ONLY) Hex Editor: Edit the raw Save Data. Tread carefully.
+- (DEBUG BUILD ONLY) Hex Editor: Edit the raw Save Data. Tread carefully.
